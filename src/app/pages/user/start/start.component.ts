@@ -20,6 +20,7 @@ export class StartComponent implements OnInit {
   marksGot = 0;
   correctAnswers = 0;
   attempted = 0;
+  isSubmit = false;
   constructor(
     private _locationSt: LocationStrategy,
     private _route: ActivatedRoute,
@@ -68,6 +69,7 @@ export class StartComponent implements OnInit {
       }).then((e)=>{
         if (e.isConfirmed) {
           // calculation
+          this.isSubmit = true;
           this.questions.forEach((q : any)=>{
             if (q.givenAnswer == q.answer) {
               this.correctAnswers++;
