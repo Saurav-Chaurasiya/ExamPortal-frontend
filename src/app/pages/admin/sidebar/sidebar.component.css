@@ -1,0 +1,9 @@
+.menu-icon {
+    margin-right: 8px; /* Adds space between icon and text */
+    vertical-align: middle; /* Aligns icon with text */
+  }
+  
+  .menu-text {
+    vertical-align: middle; /* Ensures text aligns with icon */
+  }
+  

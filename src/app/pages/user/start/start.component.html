@@ -1,0 +1,90 @@
+<div class="bootstrap-wrapper">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-2">
+        <!-- instructions -->
+        <mat-card appearance="outlined" class="mt20 ">
+          <b> <h2 class="mt10 text-center">Rules</h2></b>
+          <mat-card-content>
+            <ul>
+              <li>Do not refresh or close the app during the quiz.</li>
+              <li>Ensure you have a stable internet connection.</li>
+              <li>
+                Once submitted, you cannot retake the quiz unless permitted by
+                the admin.
+              </li>
+              <li>
+                Avoid using external resources (e.g., books, websites, or other
+                devices).
+              </li>
+              <br />
+              <b><h5>Best of Luck!</h5></b>
+            </ul>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="col-md-8">
+        <!-- questions -->
+        <mat-card appearance="outlined" class="mt20 " >
+          <ng-container *ngIf="questions">
+            <h1 class="mt20 ml20">Quiz of {{ questions[0].quiz.title }} </h1>
+          </ng-container>
+          <br />
+          <mat-card-content>
+            <!-- <p>Avoid using external resources (e.g., books, websites, or other devices).</p> -->
+            <mat-card *ngFor="let q of questions; let i = index" appearance="outlined" class="mt20 question_color">
+              <mat-card-content>
+                <p><b>Q {{i+1}})</b>  <span class="ml10"[innerHTML]="q.content"></span></p>
+                
+                <mat-divider></mat-divider>
+                <div class="row mt20">
+                  <div class="col-md-6">
+                    <input [name]="i.toString()"
+                    type="radio" 
+                    [value]="q.option1" 
+                    [(ngModel)]="q.givenAnswer"
+                     />{{ q.option1}}
+                  </div>
+                  <div class="col-md-6">
+                    <input type="radio" [value]="q.option2" [(ngModel)]="q.givenAnswer" [name]="i.toString()"/>{{
+                      q.option2
+                    }}
+                  </div>
+                </div>
+                <div class="row mt10 ">
+                  <div class="col-md-6">
+                    <input type="radio" [value]="q.option3"  [(ngModel)]="q.givenAnswer" [name]="i.toString()"/>{{
+                      q.option3
+                    }}
+                  </div>
+                  <div class="col-md-6">
+                    <input type="radio" [value]="q.option4"   [(ngModel)]="q.givenAnswer" [name]="i.toString()" />{{
+                      q.option4
+                    }}
+                  </div>
+                </div>
+              </mat-card-content>
+            </mat-card>
+          </mat-card-content>
+          <br>
+          <div class="container text-center">
+            <button (click)="submitQuiz()" mat-raised-button color="primary">Submit Quiz</button>
+          </div>
+          <br>
+        </mat-card>
+      </div>
+      <div class="col-md-2">
+        <!-- progress  -->
+        <!-- <mat-card appearance="outlined" class="mt20 title_color">
+          <b><h2 class="ml20 mt20">Progress</h2></b>
+          <mat-spinner class="mr20 ml20 mb20"></mat-spinner>
+        </mat-card> -->
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <br>
+<br>
+<br>
+<mat-paginator [length]="50" [pageSizeOptions]="[10, 50, 100]" aria-label="Select page">
+</mat-paginator> -->

@@ -1,0 +1,155 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  
+  /* Wrapper for Bootstrap */
+  .bootstrap-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+  /* Welcome Component Specific Styles */
+  
+  /* Add padding to the top of the welcome page to separate it from the navbar */
+  .welcome-container {
+    padding-top: 64px; /* Adjust this if your navbar height differs */
+    margin-top: 64px; /* This also works if you prefer margin */
+  }
+  
+  /* Optionally, add some padding to the content to make it look more professional */
+  .welcome-container .content {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  /* For smaller screens, reduce the top padding if necessary */
+  @media (max-width: 768px) {
+    .welcome-container {
+      padding-top: 56px; /* Adjust for smaller screen sizes */
+    }
+  }
+  
+  /* Welcome Header Styles */
+  .welcome-header {
+    margin-top: 10px;
+    background-color: #3f51b5;
+    color: white;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .welcome-header h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+  }
+  
+  .welcome-header p {
+    font-size: 18px;
+  }
+  
+  /* Dashboard Cards */
+  .dashboard-cards {
+    margin-top: 30px;
+  }
+  
+  .card {
+    margin-bottom: 20px;
+  }
+  
+  .card-body {
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .card-text {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
+  /* Button Styling */
+  .btn-primary {
+    background-color: #3f51b5;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .btn-primary:hover {
+    background-color: #303f9f;
+  }
+  
+  /* Sidebar Styles */
+  .app-sidebar {
+    background-color: #212529;
+    color: white;
+    height: 100%;
+    padding: 15px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 250px;
+  }
+  
+  .app-sidebar ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .app-sidebar ul li {
+    margin: 20px 0;
+  }
+  
+  .app-sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+  }
+  
+  .app-sidebar ul li a:hover {
+    color: #4CAF50;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .welcome-header h2 {
+      font-size: 24px;
+    }
+  
+    .card-title {
+      font-size: 18px;
+    }
+  
+    .card-text {
+      font-size: 14px;
+    }
+  
+    .app-sidebar {
+      width: 200px;
+    }
+  
+    /* Ensure content in the welcome component is properly spaced */
+    .welcome-container {
+      padding-top: 56px; /* Adjust this as needed */
+    }
+  }
+  

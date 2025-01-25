@@ -1,0 +1,26 @@
+.img-sz{
+    max-height: 150px;
+    max-width: 150px;
+    /* border: 10px solid #3f51b5; */
+    border-radius: 50%;
+    margin: 0 auto;
+    display: block;
+}
+.table{
+    width: 100%;
+    border-collapse: collapse;
+}
+.table tr td{
+    padding: 15px 20px;
+    border: 0.5px solid #e2e2e2;
+}
+.update_btn{
+    margin-right: 10px;
+    margin-top: 20px;
+}
+.share_btn{
+    margin-left: 10px;
+    margin-top: 20px;
+
+
+}

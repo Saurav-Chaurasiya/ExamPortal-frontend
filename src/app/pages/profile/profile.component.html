@@ -1,0 +1,59 @@
+<mat-card style="padding: 20px;"
+*ngIf="user">
+<mat-card-header>
+  <mat-card-title>Profile Details</mat-card-title>
+</mat-card-header>
+  <!-- {{user | json}} -->
+  <mat-card-content>
+    <div class="bootstrap-wrapper">
+      <div class="container">
+        <div class="container text-center">
+          <img
+            class="img-sz"
+            src="https://www.pphfoundation.ca/wp-content/uploads/2018/05/default-avatar.png"
+            alt="default-image"
+          />
+          <h1 class="mt20">{{user.firstName}} {{user.lastName}}</h1>
+        </div>
+        <div class="row">
+          <div class="col-md-10 offset-md-1">
+            <!-- table details -->
+            <table class="table text-center">
+              <tr *ngIf="user.username">
+                <td>User Name</td>
+                <td>{{user.username}}</td>
+              </tr>
+              <tr *ngIf="user.id">
+                <td>User Id</td>
+                <td>{{user.id}}</td>
+              </tr>
+              <tr *ngIf="user.email">
+                <td>Email Id</td>
+                <td>{{user.email}}</td>
+              </tr>
+              <tr>
+              <tr *ngIf="user.phone">
+                <td>Phone</td>
+                <td>{{user.phone}}</td>
+              </tr>
+              <tr>
+                <td>Role</td>
+                <td>{{user.authorities[0].authority}}</td>
+              </tr>
+              <tr>
+                <td>Status</td>
+                <td>{{user.enabled?"ACTIVE":"NOTACTIVE"}}</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <div class="container text-center">
+      <button mat-raised-button color="primary" class="update_btn">UPDATE</button>
+      <button mat-raised-button color="warn" class="share_btn">SHARE</button>
+    </div>
+  </mat-card-actions>
+</mat-card>
