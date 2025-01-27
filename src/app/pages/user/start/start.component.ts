@@ -15,12 +15,11 @@ import Swal from 'sweetalert2';
 export class StartComponent implements OnInit {
   qid: any;
   questions: any;
-
-
-  marksGot = 0;
-  correctAnswers = 0;
-  attempted = 0;
+  marksGot: any;
+  correctAnswers: any;
+  attempted : any;
   isSubmit = false;
+  timer: any;
   constructor(
     private _locationSt: LocationStrategy,
     private _route: ActivatedRoute,
@@ -38,11 +37,11 @@ export class StartComponent implements OnInit {
     this._question.getQuestionsOfQuizForTest(this.qid).subscribe(
       (data: any)=>{
         this.questions = data;
-        this.questions.forEach((q: any)=>{
-          q['givenAnswer'] = '';
-        });
+        // set time for quiz / timer
+        this.timer=this.questions.length * 2 * 60;
+       
         console.log(this.questions);
-        
+        this.startTimer();
       },
       (error)=>{
         console.log(error);
@@ -68,26 +67,51 @@ export class StartComponent implements OnInit {
           icon:'info',
       }).then((e)=>{
         if (e.isConfirmed) {
-          // calculation
-          this.isSubmit = true;
-          this.questions.forEach((q : any)=>{
-            if (q.givenAnswer == q.answer) {
-              this.correctAnswers++;
-              let marksSingle = this.questions[0].quiz.maxMarks/this.questions.length;
-              this.marksGot+= marksSingle;
-            }     
-
-            if (q.givenAnswer.trim() != '') {
-              this.attempted++;
-            }
-          });
-          console.log("correct ans: " + this.correctAnswers);
-          console.log("marks got: " + this.marksGot);
-          console.log("attempted" + this.attempted);
-          
-          console.log(this.questions);
-          
+          this.evalQuiz();
         }
       });
+  }
+
+  startTimer()
+  {
+    let t = window.setInterval(()=>{
+      // code
+      if (this.timer <=0) {
+        this.evalQuiz();
+        clearInterval(t);
+      }else{
+        this.timer--;
+      }
+    }, 1000);
+  }
+  getFormattedTime()
+  {
+    let mm = Math.floor(this.timer/60);
+    let ss = this.timer - mm *60;
+    return `${mm} min : ${ss} sec`;
+  }
+
+  evalQuiz()
+  {
+    // calculation
+    
+    // call to server to check question.->
+
+    this._question.evalQuiz(this.questions).subscribe(
+      (data : any)=>{
+        console.log(data);
+        this.marksGot = parseFloat(Number(data.marksGot).toFixed(2));
+        this.correctAnswers=data.correctAnswer;
+        this.attempted = data.attempted;
+        this.isSubmit = true;
+
+      },(error)=>{
+        console.log(error);
+        Swal.fire("Error","Error in loading data","error");
+      }
+    )
+  };
+  printPage(){
+    window.print();
   }
 }

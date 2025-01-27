@@ -1,9 +1,42 @@
-.question_color{
-    /* background-color:rgb(227, 227, 227); */
+/* .question_color{
+    background-color:rgb(227, 227, 227);
     background-color: rgb(0 0 0 / 2%);
 
 }
 .title_color{
     background-color: rgb(0 0 0 / 2%);
 
-}
+} */
+
+.mt-3 {
+    margin-top: 1rem;
+  }
+  
+  .mt-4 {
+    margin-top: 1.5rem;
+  }
+  
+  .ml-3 {
+    margin-left: 1rem;
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  .option {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+  
+  .question-card {
+    padding: 1rem;
+    background-color: rgb(245, 245, 245);
+    border-radius: 8px;
+  }
+  
+  mat-card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
