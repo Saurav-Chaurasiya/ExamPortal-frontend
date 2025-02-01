@@ -29,7 +29,7 @@
         </mat-icon>
         <span mat-line class="menu-text">Add Quiz</span>
       </button>
-      <button mat-list-item routerLink="/admin/profile">
+      <button mat-list-item (click)="logout()" >
         <mat-icon mat-list-icon class="menu-icon">logout
         </mat-icon>
         <span mat-line class="menu-text">Logout</span>

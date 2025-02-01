@@ -1,17 +1,40 @@
-<mat-card>
-    <mat-action-list>
-      <div mat-subheader>Available Categories</div>
+<!-- <mat-card>
+    <mat-action-list class="sidebar-card">
+      <div mat-subheaderclass="sidebar-header">Available Categories</div>
       <button routerLink="/user-dashboard/0" mat-list-item >
         <mat-icon mat-list-icon class="menu-icon">quiz</mat-icon>
         <span mat-line class="menu-text">All Quizzes</span>
       </button> 
       <button 
       [routerLink]="'/user-dashboard/'+ c.cid"
-      mat-list-item *ngFor="let c of categories" >
+      mat-list-item *ngFor="let c of categories"  class="sidebar-item" >
         <mat-icon mat-list-icon class="menu-icon">quiz</mat-icon>
         <span mat-line class="menu-text">{{c.title}}</span>
       </button> 
     </mat-action-list>
+  </mat-card> -->
+  <mat-card class="sidebar-card">
+    <mat-action-list>
+      <div mat-subheader class="sidebar-header">Available Categories</div>
+      
+      <button 
+        routerLink="/user-dashboard/0" 
+        mat-list-item 
+        class="sidebar-item"
+      >
+        <mat-icon mat-list-icon class="menu-icon">quiz</mat-icon>
+        <span mat-line class="menu-text">All Quizzes</span>
+      </button>
+      
+      <button 
+        *ngFor="let c of categories" 
+        [routerLink]="'/user-dashboard/' + c.cid" 
+        mat-list-item 
+        class="sidebar-item"
+      >
+        <mat-icon mat-list-icon class="menu-icon">category</mat-icon>
+        <span mat-line class="menu-text">{{ c.title }}</span>
+      </button>
+    </mat-action-list>
   </mat-card>
   
-  <!-- {{categories | json}} -->

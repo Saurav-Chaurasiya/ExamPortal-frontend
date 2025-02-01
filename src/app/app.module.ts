@@ -44,6 +44,8 @@ import { LoadQuizComponent } from './pages/user/load-quiz/load-quiz.component';
 import { InstructionsComponent } from './pages/user/instructions/instructions.component';
 import { StartComponent } from './pages/user/start/start.component';
 import { NgxUiLoaderModule, NgxUiLoaderHttpModule } from "ngx-ui-loader";
+import {MatChipsModule} from '@angular/material/chips';
+import { ViewComponent } from './pages/user/view/view.component';
 
 @NgModule({
   declarations: [
@@ -68,6 +70,7 @@ import { NgxUiLoaderModule, NgxUiLoaderHttpModule } from "ngx-ui-loader";
     LoadQuizComponent,
     InstructionsComponent,
     StartComponent,
+    ViewComponent,
   ],
   imports: [
     BrowserModule,
@@ -94,6 +97,7 @@ import { NgxUiLoaderModule, NgxUiLoaderHttpModule } from "ngx-ui-loader";
     NgxUiLoaderHttpModule.forRoot({
       showForeground : true,
     }),
+    MatChipsModule,
   ],
   providers: [
     provideClientHydration(withEventReplay()),

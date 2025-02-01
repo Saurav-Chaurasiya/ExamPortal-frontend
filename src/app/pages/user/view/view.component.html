@@ -1,0 +1,69 @@
+<!-- view.html -->
+<div class="exam-prep-container">
+    <!-- Header Section -->
+    <header class="header">
+      <h1>Exam Preparation</h1>
+      <p>Get ready for your exams with our comprehensive practice questions!</p>
+    </header>
+  
+    <!-- Main Content Section -->
+    <main class="main-content">
+      <!-- Exam Questions Section -->
+      <section class="exam-questions">
+        <h2>Practice Questions</h2>
+        <h3>{{ qTitle }}</h3>
+        <div *ngFor="let q of questions; let i = index" class="question-card">
+          <!-- <p>{{ q.content }}</p> -->
+          
+          <ul>
+            <!-- <li *ngFor="let q of questions; let i = index"> -->
+              <!-- <label>
+                <input type="radio" name="{{ question.id }}" value="{{ option }}"> {{ option }}
+              </label> -->
+              <p>
+                <b> Q {{ i + 1 }})</b>
+                <span class="ml20" [innerHTML]="q.content"></span>
+              </p>
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-6">
+                    <p><b>1)</b> {{ q.option1 }}</p>
+                  </div>
+                  <div class="col-md-6">
+                    <p><b>2)</b> {{ q.option2 }}</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <p><b>3)</b> {{ q.option3 }}</p>
+                  </div>
+                  <div class="col-md-6">
+                    <p><b>4)</b> {{ q.option4 }}</p>
+                  </div>
+                </div>
+                <br />
+                <mat-divider></mat-divider>
+                <p class="mt20">
+                  <b>Correct Answer: {{ q.answer }}</b>
+                </p>
+              </div>
+            <!-- </li> -->
+          </ul>
+        </div>
+      </section>
+  
+      <!-- Progress Section -->
+      <section class="progress-section">
+        <h2>Your Progress</h2>
+        <div class="progress-bar">
+          <div class="progress" [style.width]="progress + '%'"></div>
+        </div>
+        <p>{{ progress }}% Completed</p>
+      </section>
+    </main>
+  
+    <!-- Footer Section -->
+    <footer class="footer">
+      <p>&copy; 2023 ExamPrep. All rights reserved.</p>
+    </footer>
+  </div>

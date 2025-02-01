@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +9,13 @@ import { Component } from '@angular/core';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
+  constructor(
+    private _router : Router,
+  ){}
   title = 'Welcome to Pariksha!';
   subtitle = 'Your journey towards success begins here';
   buttonText = 'Get Started';
+  GetStarted(){
+    this._router.navigate(['/login/']);
+  }
 }

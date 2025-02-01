@@ -33,8 +33,9 @@ export class InstructionsComponent implements OnInit{
       }
     );
   }
-
+  userInput: string = '';
   startQuiz(){
+    if (this.userInput.toLowerCase() === 'start'){
     Swal.fire({
       title: 'Do you want to start the quiz?',
       showCancelButton: true,
@@ -53,6 +54,10 @@ export class InstructionsComponent implements OnInit{
         Swal.fire('Changes are not saved', '', 'info')
       }
     })
+  }else {
+    // Display an error message
+    Swal.fire('Error','Please type "start" in the box and click the "Start" button.','info');
   }
+}
 
 }
