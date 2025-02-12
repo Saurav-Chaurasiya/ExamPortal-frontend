@@ -1,107 +1,140 @@
-<div class="bootstrap-wrapper" *ngIf="!isSubmit">
-  <div class="container-fluid">
-    <div class="row">
-      <!-- Instructions Card -->
-      <div class="col-md-2">
-        <mat-card appearance="outlined" class="mt-4">
-          <h2 class="text-center"><b>Rules</b></h2>
-          <mat-card-content>
-            <ul>
-              <li>Do not refresh or close the app during the quiz.</li>
-              <li>Ensure you have a stable internet connection.</li>
-              <li>Once submitted, you cannot retake the quiz unless permitted by the admin.</li>
-              <li>Avoid using external resources (e.g., books, websites, or devices).</li>
-            </ul>
-            <p class="text-center mt-3"><b>Best of Luck!</b></p>
-          </mat-card-content>
-        </mat-card>
-      </div>
+<div class="exam-prep-container" *ngIf="!isSubmit">
+  <!-- Header Section -->
+  <header class="header-color">
+    <h1>ParikshaPrep</h1>
+    <p>Get ready for your exams with our comprehensive practice questions!</p>
+  </header>
 
-      <!-- Questions Section -->
-      <div class="col-md-8">
-        <mat-card appearance="outlined" class="mt-4">
-          <div *ngIf="questions">
-            <h1 class="ml-3 mt-3">Quiz: {{ questions[0]?.quiz?.title }}</h1>
-          </div>
-          <mat-card-content>
-            <div *ngFor="let question of questions; let i = index" class="question-card">
-              <mat-card appearance="outlined" class="mt-3">
-                <mat-card-content>
-                  <p><b>Q{{ i + 1 }}:</b> <span [innerHTML]="question.content"></span></p>
-                  <mat-divider></mat-divider>
-                  <div class="options mt-3">
-                    <ng-container *ngFor="let option of ['option1', 'option2', 'option3', 'option4']">
-                      <div class="option">
-                        <input
-                          type="radio"
-                          [name]="i.toString()"
-                          [value]="question[option]"
-                          [(ngModel)]="question.givenAnswer"
-                        />
-                        {{ question[option] }}
-                      </div>
-                    </ng-container>
-                  </div>
-                </mat-card-content>
-              </mat-card>
+  <!-- Main Content Section -->
+  <main class="main-content">
+        <!-- Progress Section -->
+        <section class="progress-section">
+          <h2>Progress</h2>
+          <mat-card class="question-card">
+            <mat-card-content>
+              <h1 class="text-center">{{ getFormattedTime() }}</h1>
+              <mat-progress-spinner
+                mode="determinate"
+                [value]="(timer / (questions?.length * 2 * 60)) * 100"
+                style="margin: auto;"
+              ></mat-progress-spinner>
+            </mat-card-content>
+          </mat-card>
+        </section>
+        <br>
+    <!-- Instructions Card -->
+    <section class="exam-questions">
+      <h2>Quiz Instructions</h2>
+      <mat-card class="question-card">
+        <mat-card-content>
+          <ul>
+            <li>Do not refresh or close the app during the quiz.</li>
+            <li>Ensure you have a stable internet connection.</li>
+            <li>Once submitted, you cannot retake the quiz unless permitted by the admin.</li>
+            <li>Avoid using external resources (e.g., books, websites, or devices).</li>
+          </ul>
+          <p class="text-center mt-3"><b>Best of Luck!</b></p>
+        </mat-card-content>
+      </mat-card>
+    </section>
+
+    <!-- Questions Section -->
+    <section class="exam-questions">
+      <h2>Quiz: {{ questions[0]?.quiz?.title }}</h2>
+      <mat-card *ngFor="let question of questions; let i = index" class="question-card">
+        <mat-card-content>
+          <p>
+            <b>Q {{ i + 1 }})</b>
+            <span class="ml20" [innerHTML]="question.content"></span>
+          </p>
+          <div class="options-container">
+            <div class="row">
+              <div class="col-md-6">
+                <input
+                  type="radio"
+                  [name]="i.toString()"
+                  [value]="question.option1"
+                  [(ngModel)]="question.givenAnswer"
+                /> 1) {{ question.option1 }}
+              </div>
+              <div class="col-md-6">
+                <input
+                  type="radio"
+                  [name]="i.toString()"
+                  [value]="question.option2"
+                  [(ngModel)]="question.givenAnswer"
+                /> 2) {{ question.option2 }}
+              </div>
             </div>
-          </mat-card-content>
-          <div class="text-center mt-4">
-            <button (click)="submitQuiz()" mat-raised-button color="primary">Submit Quiz</button>
+            <div class="row">
+              <div class="col-md-6">
+                <input
+                  type="radio"
+                  [name]="i.toString()"
+                  [value]="question.option3"
+                  [(ngModel)]="question.givenAnswer"
+                /> 3) {{ question.option3 }}
+              </div>
+              <div class="col-md-6">
+                <input
+                  type="radio"
+                  [name]="i.toString()"
+                  [value]="question.option4"
+                  [(ngModel)]="question.givenAnswer"
+                /> 4) {{ question.option4 }}
+              </div>
+            </div>
           </div>
-          <br>
-        </mat-card>
+          <mat-divider></mat-divider>
+        </mat-card-content>
+      </mat-card>
+      <div class="text-center mt-4">
+        <button (click)="submitQuiz()" mat-raised-button color="primary">Submit Quiz</button>
       </div>
+    </section>
+  </main>
 
-      <!-- Progress Section -->
-      <div class="col-md-2">
-        <mat-card appearance="outlined" class="mt-4">
-          <mat-card-header>
-            <mat-card-title>Progress</mat-card-title>
-            <mat-card-subtitle>
-              Quiz will auto-submit when the timer reaches <b>0:0</b>.
-            </mat-card-subtitle>
-          </mat-card-header>
-          <mat-card-content>
-            <h1 class="text-center">{{ getFormattedTime() }}</h1>
-            <mat-progress-spinner
-              mode="determinate"
-              [value]="(timer / (questions?.length * 2 * 60)) * 100"
-              style="margin: auto;"
-            ></mat-progress-spinner>
-          </mat-card-content>
-        </mat-card>
-      </div>
-    </div>
-  </div>
+  <!-- Footer Section -->
+  <footer class="footers">
+    <p>&copy; 2025 ExamPrep. All rights reserved.</p>
+  </footer>
 </div>
 
 <!-- Result Section -->
-<div class="bootstrap-wrapper" *ngIf="isSubmit">
-  <div class="row mt-4">
-    <div class="col-md-6 offset-md-3">
-      <mat-card>
+<div class="exam-prep-container" *ngIf="isSubmit">
+  <header class="header-color">
+    <h1>ParikshaPrep</h1>
+    <p>Quiz Results</p>
+  </header>
+
+  <main class="main-content">
+    <section class="result-section">
+      <mat-card class="question-card">
         <mat-card-header>
           <mat-card-title>Quiz Result</mat-card-title>
         </mat-card-header>
         <mat-card-content>
           <div class="container text-center">
-          <img mat-card-image src="../../../../assets/giphy.gif" alt="Photo of celebration">
+            <img mat-card-image [src]="isPassed ? '../../../../assets/congrats.jpeg' : '../../../../assets/try-again.gif'" alt="Result Image">
           </div>
+          <h2 class="text-center" [ngStyle]="{'color': isPassed ? 'green' : 'red'}">
+            {{ isPassed ? 'Congratulations! You passed the quiz!' : 'Try again next time!' }}
+          </h2>
           <h3 class="text-center">Marks: {{ marksGot }}</h3>
           <h3 class="text-center">Correct Answers: {{ correctAnswers }}</h3>
           <h3 class="text-center">Questions Attempted: {{ attempted }}</h3>
         </mat-card-content>
         <mat-card-actions>
           <div class="container text-center">
-            <button mat-raised-button color="primary" (click)="printPage()" class="mr10" >Print</button>
-            <button mat-raised-button color="accent" routerLink="/user-dashboard/0" class="ms-3">Home</button>
+            <button mat-raised-button color="primary" (click)="printPage()">Print</button>
+            <button mat-raised-button color="accent" routerLink="/user-dashboard/0">Home</button>
           </div>
         </mat-card-actions>
-        <br>
       </mat-card>
-    </div>
-  </div>
+    </section>
+  </main>
+
+  <footer class="footers">
+    <p>&copy; 2025 ExamPrep. All rights reserved.</p>
+  </footer>
 </div>
-
-

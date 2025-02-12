@@ -14,6 +14,7 @@ import Swal from 'sweetalert2';
 })
 export class StartComponent implements OnInit {
   qid: any;
+  isPassed: boolean = false;
   questions: any;
   marksGot: any;
   correctAnswers: any;
@@ -91,26 +92,27 @@ export class StartComponent implements OnInit {
     return `${mm} min : ${ss} sec`;
   }
 
-  evalQuiz()
-  {
-    // calculation
-    
-    // call to server to check question.->
+evalQuiz() {
+  this._question.evalQuiz(this.questions).subscribe(
+    (data: any) => {
+      console.log(data);
+      this.marksGot = parseFloat(Number(data.marksGot).toFixed(2));
+      this.correctAnswers = data.correctAnswer;
+      this.attempted = data.attempted;
+      this.isSubmit = true;
 
-    this._question.evalQuiz(this.questions).subscribe(
-      (data : any)=>{
-        console.log(data);
-        this.marksGot = parseFloat(Number(data.marksGot).toFixed(2));
-        this.correctAnswers=data.correctAnswer;
-        this.attempted = data.attempted;
-        this.isSubmit = true;
+      // Determine pass/fail status (assuming 50% is the passing mark)
+      let totalQuestions = this.questions.length;
+      let passingMarks = totalQuestions * 0.5; // Adjust this as needed
+      this.isPassed = this.marksGot >= passingMarks;
+    },
+    (error) => {
+      console.log(error);
+      Swal.fire('Error', 'Error in loading data', 'error');
+    }
+  );
+}
 
-      },(error)=>{
-        console.log(error);
-        Swal.fire("Error","Error in loading data","error");
-      }
-    )
-  };
   printPage(){
     window.print();
   }

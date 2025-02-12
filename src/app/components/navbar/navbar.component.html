@@ -1,4 +1,4 @@
-<mat-toolbar color="primary">
+<mat-toolbar class="navbar">
   <a routerLink="/" mat-icon-button aria-label="Menu">
     <mat-icon>menu_book</mat-icon>
   </a>
@@ -27,7 +27,7 @@
   <button
     *ngIf="isLoggedIn && user"
     mat-button
-    class="example-icon mr20"
+    class="example-icon-color mr20"
     aria-label="Favorite"
     routerLink="/admin/profile"
   >

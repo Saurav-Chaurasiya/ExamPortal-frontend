@@ -4,8 +4,19 @@
   
   .example-icon{
     font-size: 15px;
+
   }
   .example-icons{
     font-size: 15px;
+
   }
-  
+  .navbar{
+    color: white;
+    background-color: #004080 ;
+  }
+  .example-icon-color{
+    /* color: white; */
+    background-color: antiquewhite;
+    font-size: 15px;
+
+  }

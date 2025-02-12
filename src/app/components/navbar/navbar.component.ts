@@ -10,6 +10,7 @@ import { LoginService } from '../../services/login.service';
 })
 export class NavbarComponent implements OnInit {
   isLoggedIn = false;
+  isMenuOpen = false;
   // user = null;
   user: { username: string; } | null | undefined;
 
@@ -27,5 +28,8 @@ export class NavbarComponent implements OnInit {
   public logout(){
     this.login.logout();
     window.location.reload();
+  }
+  toggleMenu(): void {
+    this.isMenuOpen = !this.isMenuOpen;
   }
 }

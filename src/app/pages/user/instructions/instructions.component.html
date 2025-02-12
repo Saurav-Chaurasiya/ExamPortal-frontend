@@ -1,67 +1,73 @@
-<div class="container"> 
-    <div class="row">
-      <div class="col-md-12">
-        <mat-card>
-          <mat-card-header>
-            <mat-card-title>
-              Assessment Guidelines
-            </mat-card-title>
-          </mat-card-header>
-          <!-- <mat-divider></mat-divider> -->
-           <br>
+<div class="exam-prep-container">
+  <!-- Header Section -->
+  <header class="header-color">
+    <h1>ParikshaPrep</h1>
+    <p>Get ready for your exams with our comprehensive practice questions!</p>
+  </header>
+
+  <!-- Main Content Section -->
+  <main class="main-content">
+    <!-- Instructions Card -->
+    <section class="exam-questions">
+      <h2>Assessment Guidelines</h2>
+      <mat-card class="question-card">
+        <mat-card-content>
           <h2 class="ml20">Kindly read through the following key instructions and important guidelines for this assessment:</h2>
-          <mat-card-content>
-            <b><h4>Timelines & Questions:</h4></b>
+          <b><h4>Timelines & Questions:</h4></b>
+          <ul>
+            <li><b>Assessment Marks:</b> {{quiz.maxMarks/quiz.numberOfQuestions}} marks.</li>
+            <li><b>Assessment Duration:</b> {{quiz.numberOfQuestions*2}}:00 (mm:ss)</li>
+            <li><b>Total Questions to be answered:</b> {{quiz.numberOfQuestions}} Questions</li>
+          </ul>
+
+          <b><h4>Marking:</h4></b>
+          <ul>
+            <li>
+              Each participant's ranking will be determined based on the accuracy of their answers. If two participants achieve the same score, the one who completes the assessment in the least amount of time will be ranked higher.
+            </li>
+          </ul>
+
+          <b><h4>Proctoring Related:</h4></b>
+          <ul>
+            <li>The assessment will be hosted in full-screen mode.</li>
+            <li>Anything that disturbs the full-screen mode of the assessment is treated as a violation, such as:</li>
             <ul>
-              <li><b>Assessment Marks:</b> {{quiz.maxMarks/quiz.numberOfQuestions}} marks.</li>
-              <li><b>Assessment Duration:</b> {{quiz.numberOfQuestions*2}}:00 (mm:ss)</li>
-              <li><b>Total Questions to be answered:</b> {{quiz.numberOfQuestions}} Questions</li>
+              <li>Tab Switching</li>
+              <li>Screen Sharing</li>
+              <li>Clicking the escape button</li>
+              <li>Notifications during the assessment (Set them to 'Do Not Disturb')</li>
             </ul>
-  
-            <b><h4>Marking:</h4></b>
-            <ul>
-              <li>
-                Each participant's ranking will be determined based on the accuracy of their answers. If two participants achieve the same score, the one who completes the assessment in the least amount of time will be ranked higher.
-              </li>
-            </ul>
-  
-            <b><h4>Proctoring Related:</h4></b>
-            <ul>
-              <li>The assessment will be hosted in full-screen mode.</li>
-              <li>Anything that disturbs the full-screen mode of the assessment is treated as a violation, such as:</li>
-              <ul>
-                <li>Tab Switching</li>
-                <li>Screen Sharing</li>
-                <li>Clicking the escape button</li>
-                <li>Notifications during the assessment (Set them to 'Do Not Disturb')</li>
-              </ul>
-            </ul>
-  
-            <h4>Key Instructions:</h4>
-            <ul>
-              <li>You can access the assessment from the opportunity page where you registered.</li>
-              <li>Click the button in the respective round to start the assessment.</li>
-              <li>Submit answers individually. You won’t be able to modify them after submission.</li>
-              <li>Unfair practices will lead to disqualification.</li>
-              <li>All decisions regarding eligibility and authenticity lie with Pariksha and the organizer.</li>
-            </ul>
-  
-            <h4>Other Instructions from the Organizers:</h4>
-            <ul>
-              <li>All registered candidates can take this assessment.</li>
-              <li>No negative marking for this assessment.</li>
-              <li>All decisions in eligibility, authenticity, and final judgment will be with Unstop and the organizer.</li>
-            </ul>
-  
-            <p>All the best!</p>
-  
-            <mat-card-footer class="start-footer">
-              <input matInput type="text" [(ngModel)]="userInput" placeholder="Type 'start' here" />
-              <button mat-raised-button color="primary" (click)="startQuiz()" class="start-btn">Start</button>
-            </mat-card-footer>
-          </mat-card-content>
-        </mat-card>
-      </div>
-    </div>
-  </div>
-  
+          </ul>
+
+          <h4>Key Instructions:</h4>
+          <ul>
+            <li>You can access the assessment from the opportunity page where you registered.</li>
+            <li>Click the button in the respective round to start the assessment.</li>
+            <li>Submit answers individually. You won’t be able to modify them after submission.</li>
+            <li>Unfair practices will lead to disqualification.</li>
+            <li>All decisions regarding eligibility and authenticity lie with Pariksha and the organizer.</li>
+          </ul>
+
+          <h4>Other Instructions from the Organizers:</h4>
+          <ul>
+            <li>All registered candidates can take this assessment.</li>
+            <li>No negative marking for this assessment.</li>
+            <li>All decisions in eligibility, authenticity, and final judgment will be with Unstop and the organizer.</li>
+          </ul>
+
+          <p>All the best!</p>
+
+          <mat-card-footer class="start-footer">
+            <input matInput type="text" [(ngModel)]="userInput" placeholder="Type 'start' here" />
+            <button mat-raised-button color="primary" (click)="startQuiz()" class="start-btn">Start</button>
+          </mat-card-footer>
+        </mat-card-content>
+      </mat-card>
+    </section>
+  </main>
+
+  <!-- Footer Section -->
+  <footer class="footers">
+    <p>&copy; 2025 ExamPrep. All rights reserved.</p>
+  </footer>
+</div>

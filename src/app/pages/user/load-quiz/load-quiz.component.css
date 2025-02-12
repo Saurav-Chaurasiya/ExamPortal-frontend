@@ -1,54 +1,64 @@
-/* .truncate{
-    display: block;
-    white-space: nowrap;
-    width: 100%;
-    overflow: hidden;
-    text-overflow: ellipsis;
+/* Container */
+.container-fluid {
+  padding: 2rem;
+  background-color: var(--background-color); /* Use theme variable */
+  color: var(--text-color); /* Use theme variable */
 }
-.example-header-image {
-    background-image: url('../../../../assets/exam33.png');
-    background-size: cover;
-  } */
-  .container-fluid {
-    padding: 2rem;
-  }
-  
-  .section-title {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #3f51b5;
-  }
-  
-  .quiz-card {
-    margin-bottom: 20px;
-    border-radius: 12px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .quiz-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  }
-  
-  .quiz-card-avatar {
-    background-image: url('../../../../assets/exam33.png');
-    background-size: cover;
-  }
-  
-  .truncate {
-    display: block;
-    white-space: nowrap;
-    width: 100%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  
-  .action-btn {
-    margin-right: 10px;
-  }
-  
-  .no-quiz {
-    text-align: center;
-    margin-top: 2rem;
-  }
-  
+
+/* Section Title */
+.section-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--button-bg); /* Use theme variable for primary color */
+}
+
+/* Quiz Card */
+.quiz-card {
+  margin-bottom: 20px;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: var(--card-bg); /* Use theme variable */
+  color: var(--card-text); /* Use theme variable */
+}
+
+.quiz-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Quiz Card Avatar */
+.quiz-card-avatar {
+  background-image: url('../../../../assets/exam33.png');
+  background-size: cover;
+}
+
+/* Truncate Text */
+.truncate {
+  display: block;
+  white-space: nowrap;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Action Buttons */
+.action-btn {
+  margin-right: 10px;
+  background-color: var(--button-bg); /* Use theme variable */
+  color: var(--button-text); /* Use theme variable */
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  transition: background-color 0.3s ease;
+}
+
+.action-btn:hover {
+  opacity: 0.9; /* Hover effect */
+}
+
+/* No Quiz Message */
+.no-quiz {
+  text-align: center;
+  margin-top: 2rem;
+  color: var(--text-color); /* Use theme variable */
+}

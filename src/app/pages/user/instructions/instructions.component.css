@@ -1,94 +1,165 @@
-.container {
-    padding: 20px; /* Add padding to the container for better spacing */
+/* General Styles */
+.exam-prep-container {
+  font-family: Arial, sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f8f9fa; /* Light background */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.header-color {
+  text-align: center;
+  margin-bottom: 20px;
+  background-color: #004080; /* Dark blue background */
+  color: #ffffff; /* White text */
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.main-content {
+  margin-bottom: 20px;
+  color: #333; /* Dark text */
+}
+
+.exam-questions .question-card {
+  background-color: #ffffff; /* White background for cards */
+  border: 1px solid #004080; /* Blue border */
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.question-card h2 {
+  color: #004080; /* Blue for headings */
+}
+
+.options-container button {
+  background-color: #004080; /* Dark blue buttons */
+  color: #ffffff; /* White text on buttons */
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 5px 0;
+  width: 100%;
+  cursor: not-allowed; /* Disabled cursor */
+}
+
+.options-container button:hover {
+  background-color: #0066cc; /* Lighter blue on hover */
+}
+
+.progress-section {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.progress-bar {
+  width: 100%;
+  background-color: #e0e0e0; /* Light gray background */
+  border-radius: 5px;
+  margin: 10px 0;
+  overflow: hidden;
+}
+
+.progress {
+  height: 20px;
+  background-color: #32CD32; /* Lime green */
+  border-radius: 5px;
+  transition: width 0.3s ease;
+}
+
+.footers {
+  text-align: center;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #004080; /* Footer matches header */
+  color: #ffffff; /* White text */
+  border-top: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+.result-section {
+  margin-top: 20px;
+}
+
+.result-section .question-card {
+  background-color: #ffffff;
+  border: 1px solid #004080;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.result-section img {
+  max-width: 100%;
+  height: auto;
+}
+
+.result-section h2 {
+  color: #004080;
+}
+
+.result-section h2.failed {
+  color: #F44336;
+}
+
+button.mat-raised-button {
+  margin: 0.5rem;
+}
+
+/* Card Footer */
+.start-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff; /* White background */
+  padding: 12px 0;
+  border-top: 1px solid #004080; /* Blue border */
+}
+
+/* Input Field */
+.start-footer input {
+  width: 50%;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #004080; /* Blue border */
+  border-radius: 4px;
+  margin-right: 10px;
+  transition: all 0.3s;
+  background-color: #ffffff; /* White background */
+  color: #333; /* Dark text */
+}
+
+.start-footer input:focus {
+  border-color: #0066cc; /* Highlight border on focus */
+}
+
+/* Start Button */
+.start-footer button.start-btn {
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 4px;
+  background-color: #004080; /* Dark blue background */
+  color: #ffffff; /* White text */
+  border: none;
+  transition: background-color 0.3s;
+}
+
+.start-footer button.start-btn:hover {
+  opacity: 0.9; /* Hover effect */
+}
+
+/* Responsive Design for Mobile View */
+@media (max-width: 768px) {
+  .start-footer input {
+    width: 70%; /* Adjust input width for smaller screens */
   }
-  
-  mat-card {
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    overflow: hidden; /* Clean card edges */
+
+  .start-footer button.start-btn {
+    padding: 10px 20px;
   }
-  
-  mat-card-header {
-    background-color: #3f51b5; /* Primary color */
-    color: white;
-    padding: 16px;
-    border-bottom: 2px solid #ddd; /* Divider between header and content */
-  }
-  
-  mat-card-title {
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  mat-card-subtitle {
-    font-size: 14px;
-    font-weight: normal;
-    opacity: 0.8;
-  }
-  
-  mat-card-content {
-    padding: 24px;
-    font-size: 16px;
-    color: #333;
-    line-height: 1.6;
-  }
-  
-  mat-card-footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #f7f7f7;
-    padding: 12px 0;
-    border-top: 1px solid #ddd;
-  }
-  
-  mat-card-footer input {
-    width: 50%;
-    padding: 12px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-right: 10px;
-    transition: all 0.3s;
-  }
-  
-  mat-card-footer input:focus {
-    border-color: #3f51b5; /* Highlight border on focus */
-  }
-  
-  mat-card-footer button.start-btn {
-    padding: 12px 24px;
-    font-size: 16px;
-    border-radius: 4px;
-    background-color: #3f51b5;
-    color: white;
-    border: none;
-    transition: background-color 0.3s;
-  }
-  
-  mat-card-footer button.start-btn:hover {
-    background-color: #303f9f; /* Darker shade for hover effect */
-  }
-  
-  mat-divider {
-    margin: 12px 0;
-    border-top: 2px solid #ddd;
-  }
-  
-  /* Responsive Design for Mobile View */
-  @media (max-width: 768px) {
-    mat-card-header {
-      text-align: center;
-    }
-  
-    mat-card-footer input {
-      width: 70%; /* Adjust input width for smaller screens */
-    }
-  
-    mat-card-footer button.start-btn {
-      padding: 10px 20px;
-    }
-  }
-  
+}

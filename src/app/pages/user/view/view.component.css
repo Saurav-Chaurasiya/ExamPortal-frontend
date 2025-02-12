@@ -1,47 +1,82 @@
-/* view.css */
+/* Updated view.component.css */
 .exam-prep-container {
-    font-family: Arial, sans-serif;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  .header {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .main-content {
-    margin-bottom: 20px;
-  }
-  
-  .exam-questions .question-card {
-    border: 1px solid #ccc;
-    padding: 15px;
-    margin-bottom: 15px;
-    border-radius: 5px;
-  }
-  
-  .progress-section {
-    text-align: center;
-  }
-  
-  .progress-bar {
-    width: 100%;
-    background-color: #f3f3f3;
-    border-radius: 5px;
-    margin: 10px 0;
-  }
-  
-  .progress {
-    height: 20px;
-    background-color: #4caf50;
-    border-radius: 5px;
-  }
-  
-  .footer {
-    text-align: center;
-    margin-top: 20px;
-    padding-top: 10px;
-    border-top: 1px solid #ccc;
-  }
+  font-family: Arial, sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f8f9fa; /* Light background */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.header-color {
+  text-align: center;
+  margin-bottom: 20px;
+  background-color: #004080; /* Dark blue background */
+  color: #ffffff; /* White text */
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.main-content {
+  margin-bottom: 20px;
+  color: #333; /* Dark text */
+}
+
+.exam-questions .question-card {
+  background-color: #ffffff; /* White background for cards */
+  border: 1px solid #004080; /* Blue border */
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.question-card h2 {
+  color: #004080; /* Blue for headings */
+}
+
+.options-container button {
+  background-color: #004080; /* Dark blue buttons */
+  color: #ffffff; /* White text on buttons */
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 5px 0;
+  width: 100%;
+  cursor: not-allowed; /* Disabled cursor */
+}
+
+.options-container button:hover {
+  background-color: #0066cc; /* Lighter blue on hover */
+}
+
+.progress-section {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.progress-bar {
+  width: 100%;
+  background-color: #e0e0e0; /* Light gray background */
+  border-radius: 5px;
+  margin: 10px 0;
+  overflow: hidden;
+}
+
+.progress {
+  height: 20px;
+  background-color: #32CD32; /* Lime green */
+  border-radius: 5px;
+  transition: width 0.3s ease;
+}
+
+.footers {
+  text-align: center;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #004080; /* Footer matches header */
+  color: #ffffff; /* White text */
+  border-top: 1px solid #ccc;
+  border-radius: 10px;
+}

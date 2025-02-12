@@ -1,1 +1,38 @@
-<p>footer works!</p>
+<footer class="footer mat-elevation-z2">
+  <mat-toolbar class="footer-toolbar">
+    <div class="footer-container">
+      <!-- Navigation Links -->
+      <div class="footer-links">
+        <a mat-button routerLink="/">Home</a>
+        <a mat-button routerLink="/about">About</a>
+        <a mat-button routerLink="/contact">Contact</a>
+        <a mat-button routerLink="/privacy-policy">Privacy</a>
+        <a mat-button routerLink="/terms-of-service">Terms</a>
+      </div>
+
+      <!-- Social Media Icons -->
+      <div class="footer-social">
+        <a mat-icon-button href="https://facebook.com" target="_blank" aria-label="Facebook">
+          <mat-icon>facebook</mat-icon>
+        </a>
+        <a mat-icon-button href="https://twitter.com" target="_blank" aria-label="Twitter">
+          <mat-icon>twitter</mat-icon>
+        </a>
+        <a mat-icon-button href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+          <mat-icon>linkedin</mat-icon>
+        </a>
+        <a mat-icon-button href="https://instagram.com" target="_blank" aria-label="Instagram">
+          <mat-icon>instagram</mat-icon>
+        </a>
+      </div>
+    </div>
+  </mat-toolbar>
+
+  <!-- Divider -->
+  <mat-divider></mat-divider>
+
+  <!-- Copyright Text -->
+  <div class="footer-bottom">
+    <p>&copy; {{ currentYear }} ExamPrep. All rights reserved.</p>
+  </div>
+</footer>

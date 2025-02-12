@@ -1,15 +1,74 @@
 <div class="home-container">
-  <div class="video-background">
-    <video autoplay muted loop>
-      <source src="../../../assets/10130349-hd_1920_1080_30fps.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-  </div>
-  <div class="content">
-    <h1>{{ title }}</h1>
-    <p>{{ subtitle }}</p>
-    <button 
-    (click)="GetStarted()"
-    class="btn-primary">{{ buttonText }}</button>
-  </div>
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <h1 class="hero-title">Welcome to ParikshaPrep</h1>
+      <p class="hero-subtitle">Your Ultimate Exam Preparation Partner</p>
+      <div class="hero-buttons">
+        <button class="btn-primary" (click)="navigateToCourses()">Explore Courses</button>
+        <button class="btn-secondary" (click)="navigateToTests()">Take a Test</button>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img
+        src="../../../assets/ExamPrep-Logo-Final-190725.png"
+        alt="Exam Preparation"
+        class="hero-img"
+      />
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features-section">
+    <h2 class="section-title">Why Choose ParikshaPrep?</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-book-open"></i>
+        </div>
+        <h3 class="feature-title">Comprehensive Study Material</h3>
+        <p class="feature-description">Access detailed notes, practice questions, and mock tests for all subjects.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-chart-line"></i>
+        </div>
+        <h3 class="feature-title">Performance Analytics</h3>
+        <p class="feature-description">Track your progress with detailed analytics and personalized recommendations.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-users"></i>
+        </div>
+        <h3 class="feature-title">Expert Guidance</h3>
+        <p class="feature-description">Learn from experienced educators and get your doubts resolved instantly.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials-section">
+    <h2 class="section-title">What Our Students Say</h2>
+    <div class="testimonials-carousel">
+      <div class="testimonial-card">
+        <p class="testimonial-text">"ParikshaPrep helped me ace my exams with their amazing study material and mock tests!"</p>
+        <p class="testimonial-author">- Rohan Sharma</p>
+      </div>
+      <div class="testimonial-card">
+        <p class="testimonial-text">"The performance analytics feature is a game-changer. I improved my scores significantly!"</p>
+        <p class="testimonial-author">- Priya Singh</p>
+      </div>
+      <div class="testimonial-card">
+        <p class="testimonial-text">"The expert guidance and doubt-solving sessions are top-notch. Highly recommended!"</p>
+        <p class="testimonial-author">- Ankit Verma</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action Section -->
+  <section class="cta-section">
+    <h2 class="cta-title">Ready to Ace Your Exams?</h2>
+    <p class="cta-subtitle">Join ParikshaPrep today and start your journey towards success.</p>
+    <button class="btn-primary" (click)="navigateToSignup()">Sign Up Now</button>
+  </section>
 </div>

@@ -1,0 +1,11 @@
+<header class="header1">
+    <!-- <h1>Exam Preparation</h1>
+    <p>Get ready for your exams with our comprehensive practice questions!</p> -->
+    <div class="theme-toggle">
+      <label class="switch">
+        <input mat-input type="checkbox" (change)="toggleTheme()" [checked]="isDarkMode">
+        <span class="slider round"></span>
+      </label>
+      <span>{{ isDarkMode ? 'Dark Mode' : 'Light Mode' }}</span>
+    </div>
+  </header>

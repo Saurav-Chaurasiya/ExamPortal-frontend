@@ -46,6 +46,8 @@ import { StartComponent } from './pages/user/start/start.component';
 import { NgxUiLoaderModule, NgxUiLoaderHttpModule } from "ngx-ui-loader";
 import {MatChipsModule} from '@angular/material/chips';
 import { ViewComponent } from './pages/user/view/view.component';
+import { HeaderComponent } from './components/header/header.component';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [
@@ -71,6 +73,8 @@ import { ViewComponent } from './pages/user/view/view.component';
     InstructionsComponent,
     StartComponent,
     ViewComponent,
+    HeaderComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
