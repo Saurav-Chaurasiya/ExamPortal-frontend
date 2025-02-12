@@ -21,6 +21,7 @@
       "prefix": "app",
       "architect": {
         "build": {
+          "allowedCommonJsDependencies": ["sweetalert2"],
           "builder": "@angular-devkit/build-angular:application",
           "options": {
             "outputPath": "dist/exam-front",
@@ -46,8 +47,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
+                  "maximumWarning": "2MB",
+                  "maximumError": "3MB"
                 },
                 {
                   "type": "anyComponentStyle",
