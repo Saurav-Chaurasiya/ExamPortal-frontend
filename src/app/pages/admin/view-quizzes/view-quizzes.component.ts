@@ -52,7 +52,7 @@ export class ViewQuizzesComponent implements OnInit {
           Swal.fire('Success!', 'Quiz is deleted', 'success');
           this.quizzes = this.quizzes.filter((quiz: any) => quiz.qId !== qId);
           this.filterQuizzes();  // Apply filter after deleting
-        }, (error) => {
+        }, (error: any) => {
           console.log(error);
           Swal.fire('Error!', 'Error in deleting quiz', 'error');
         });

@@ -35,7 +35,7 @@ export class AddCategoryComponent {
         this.category.description = '';
         Swal.fire('Success !!', 'Category is added !!', 'success');
       },
-      (error) => {
+      (error : any) => {
         console.log(error);
         Swal.fire('Error !!', 'Server Error !!', 'error');
       }

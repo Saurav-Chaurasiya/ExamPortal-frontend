@@ -21,7 +21,7 @@ export class SidebarComponent implements OnInit{
       (data : any)=>{
         this.categories = data;
       },
-      (error)=>{
+      (error: any)=>{
         this._snack.open('Error in loading categories from server','',{
           duration : 3000,
         });

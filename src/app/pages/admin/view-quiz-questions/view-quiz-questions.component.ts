@@ -28,7 +28,7 @@ export class ViewQuizQuestionsComponent implements OnInit{
     this._question.getQuestionsOfQuiz(this.qId).subscribe((data : any)=>{
       console.log(data);
       this.questions = data;
-    },(error)=>{
+    },(error: any)=>{
       console.log(error);
     }
   );

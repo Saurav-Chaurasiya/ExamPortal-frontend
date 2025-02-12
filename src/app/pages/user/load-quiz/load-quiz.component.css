@@ -1,24 +1,55 @@
 /* Container */
+.bootstrap-wrapper {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa; /* Light background */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
 .container-fluid {
-  padding: 2rem;
-  background-color: var(--background-color); /* Use theme variable */
-  color: var(--text-color); /* Use theme variable */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
 /* Section Title */
 .section-title {
+  text-align: center;
+  margin-bottom: 20px;
+  background-color: #004080; /* Dark blue background */
+  color: #ffffff; /* White text */
+  padding: 15px;
+  border-radius: 10px;
   font-size: 2rem;
   font-weight: bold;
-  color: var(--button-bg); /* Use theme variable for primary color */
 }
 
 /* Quiz Card */
 .quiz-card {
+  background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+  border: 1px solid #004080; /* Blue border */
+  padding: 20px;
   margin-bottom: 20px;
-  border-radius: 12px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  background-color: var(--card-bg); /* Use theme variable */
-  color: var(--card-text); /* Use theme variable */
+  position: relative; /* Required for pseudo-element positioning */
+  overflow: hidden; /* Ensure the pseudo-element doesn't overflow */
+}
+
+.quiz-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../../../../assets/Background-logo-for-quiz2.webp'); /* Path to your transparent image */
+  background-size: cover;
+  background-position: center;
+  opacity: 0.2; /* Adjust opacity for transparency */
+  z-index: 0; /* Place behind the card content */
 }
 
 .quiz-card:hover {
@@ -26,10 +57,19 @@
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
+/* Quiz Card Content */
+.quiz-card > * {
+  position: relative; /* Ensure content stays above the background image */
+  z-index: 1; /* Place content above the pseudo-element */
+}
+
 /* Quiz Card Avatar */
 .quiz-card-avatar {
-  background-image: url('../../../../assets/exam33.png');
+  background-image: url('../../../../assets/account.png');
   background-size: cover;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
 }
 
 /* Truncate Text */
@@ -39,26 +79,97 @@
   width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
+  color: #333; /* Dark text */
 }
 
-/* Action Buttons */
+/* Card Actions */
+.card-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Space between button groups */
+}
+
 .action-btn {
-  margin-right: 10px;
-  background-color: var(--button-bg); /* Use theme variable */
-  color: var(--button-text); /* Use theme variable */
+  width: 100%; /* Full-width buttons */
+  text-align: center;
+  background-color: #004080; /* Dark blue buttons */
+  color: #ffffff; /* White text on buttons */
   border: none;
-  border-radius: 4px;
-  padding: 8px 16px;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 .action-btn:hover {
-  opacity: 0.9; /* Hover effect */
+  background-color: #0066cc; /* Lighter blue on hover */
+}
+
+/* Info Buttons (Questions and M.M) */
+.info-buttons {
+  display: flex;
+  gap: 10px; /* Space between buttons */
+}
+
+.info-btn {
+  flex: 1; /* Equal width for both buttons */
+  background-color: transparent;
+  border: 1px solid #004080; /* Blue border */
+  color: #004080; /* Blue text */
+}
+
+.info-btn:hover {
+  background-color: #004080; /* Blue background on hover */
+  color: #ffffff; /* White text on hover */
 }
 
 /* No Quiz Message */
 .no-quiz {
   text-align: center;
   margin-top: 2rem;
-  color: var(--text-color); /* Use theme variable */
+  color: #333; /* Dark text */
+}
+
+.no-quiz mat-card {
+  background-color: #ffffff; /* White background */
+  border: 1px solid #004080; /* Blue border */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.no-quiz h2 {
+  color: #004080; /* Blue for headings */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 1.5rem; /* Smaller font size for mobile */
+    padding: 10px;
+  }
+
+  .quiz-card {
+    padding: 15px; /* Reduce padding for smaller screens */
+  }
+
+  .action-btn {
+    width: 100%; /* Full-width buttons on mobile */
+    margin-bottom: 10px; /* Add space between stacked buttons */
+  }
+
+  .quiz-card-avatar {
+    width: 40px; /* Smaller avatar for mobile */
+    height: 40px;
+  }
+}
+
+@media (max-width: 576px) {
+  .container-fluid {
+    padding: 10px; /* Reduce padding for very small screens */
+  }
+
+  .quiz-card {
+    margin-bottom: 15px; /* Reduce margin for smaller screens */
+  }
 }

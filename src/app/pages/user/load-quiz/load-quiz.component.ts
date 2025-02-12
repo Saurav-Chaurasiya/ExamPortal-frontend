@@ -29,7 +29,7 @@ export class LoadQuizComponent implements OnInit{
           this.quizzes = data;
           console.log(this.quizzes);
         },
-        (error)=>{
+        (error: any)=>{
           console.log(error);
           Swal.fire('Error','Error in loading all quizzes','error');
         }
@@ -39,7 +39,7 @@ export class LoadQuizComponent implements OnInit{
       this._quiz.getActiveQuizzesOfCategory(this.catId).subscribe((data: any)=>{
         this.quizzes = data;
       },
-      (error)=>{
+      (error: any)=>{
         Swal.fire('Error','Error in loading data','error');
       }
     );

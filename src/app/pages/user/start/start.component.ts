@@ -44,7 +44,7 @@ export class StartComponent implements OnInit {
         console.log(this.questions);
         this.startTimer();
       },
-      (error)=>{
+      (error: any)=>{
         console.log(error);
         Swal.fire('Error', 'Error in loading questions of quiz','error');
         
@@ -106,7 +106,7 @@ evalQuiz() {
       let passingMarks = totalQuestions * 0.5; // Adjust this as needed
       this.isPassed = this.marksGot >= passingMarks;
     },
-    (error) => {
+    (error: any) => {
       console.log(error);
       Swal.fire('Error', 'Error in loading data', 'error');
     }

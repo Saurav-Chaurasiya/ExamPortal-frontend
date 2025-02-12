@@ -60,7 +60,7 @@ export class AddQuestionComponent {
       this.question.option3='';
       this.question.option4='';
       this.question.answer='';
-    },(error)=>{
+    },(error: any)=>{
       Swal.fire('Error', 'Error in Adding Question', 'error');
     }
   );

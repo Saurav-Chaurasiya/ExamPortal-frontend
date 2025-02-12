@@ -28,7 +28,7 @@ export class InstructionsComponent implements OnInit{
         // console.log(data);
         this.quiz = data;
       },
-      (error)=>{
+      (error: any)=>{
         Swal.fire('Error','Error in loading data','error');
       }
     );

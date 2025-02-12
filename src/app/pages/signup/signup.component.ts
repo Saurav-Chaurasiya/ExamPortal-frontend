@@ -96,7 +96,7 @@ if (this.user.phone=='' || this.user.phone
       // alert('success !!');
       swal.fire('Success !!', 'user is registered with id:'+' '+ data.id,'success');
     },
-  (error)=>{
+  (error: any)=>{
     // error
     console.log(error);
     // alert('something went wrong');

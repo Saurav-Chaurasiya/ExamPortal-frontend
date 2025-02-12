@@ -24,7 +24,7 @@ export class ViewComponent implements OnInit {
         console.log(data);
         this.questions = data;
       },
-      (error) => {
+      (error: any) => {
         console.log(error);
       }
     );

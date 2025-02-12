@@ -70,7 +70,7 @@ export class LoginComponent {
             }
           });
       },
-      (error) => {
+      (error: any) => {
         console.log('Error');
         console.log(error);
         this.snack.open("Invalid Details.. Try again", 'ok', {

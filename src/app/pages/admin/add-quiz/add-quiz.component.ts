@@ -39,7 +39,7 @@ export class AddQuizComponent implements OnInit {
         this.categories = data;
         // console.log(this.categories);
       },
-      (error) => {
+      (error: any) => {
         console.log(error);
         Swal.fire('Error !!', 'Error in loading data', 'error');
       }
@@ -70,7 +70,7 @@ export class AddQuizComponent implements OnInit {
           cid: ''
         },
       };
-    }, (error) => { 
+    }, (error: any) => { 
       Swal.fire('Error !!', 'Error in saving quiz', 'error');
       console.log(error);
      });
